@@ -13,7 +13,7 @@ const IncompletedTodos = () => {
   const todoItems = useSelector((state) => state.todo.items);
   const search = useSelector((state) => state.todo.filter);
   const IncompleteTodos = todoItems.filter(
-    (todo) => todo.completed === true && todo.name.startsWith(search)
+    (todo) => todo.completed === true && todo.name.includes(search)
   );
 
   const toggleList = () => {
