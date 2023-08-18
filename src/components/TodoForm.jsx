@@ -20,6 +20,7 @@ const TodoForm = () => {
 
   const valueChangeHandler = (e) => {
     setTodo(e.target.value);
+    dispatch(todoSliceActions.searchTodo(todo));
   };
 
   const submitHandler = (e) => {
@@ -53,12 +54,6 @@ const TodoForm = () => {
             value={todo}
             onChange={valueChangeHandler}
           />
-          <Button
-            type="button"
-            className="absolute text-white p-2 bg-blue-500 hover:bg-blue-400 rounded-md right-[6%] top-[26%] md:right-[16%] "
-          >
-            <HiMagnifyingGlass />
-          </Button>
         </div>
         <div className="text-center py-2">
           <Button

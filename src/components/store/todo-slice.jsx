@@ -4,6 +4,7 @@ const todoSlice = createSlice({
   name: "todo",
   initialState: {
     items: [],
+    filter: "",
   },
   reducers: {
     addTodo(state, action) {
@@ -13,6 +14,7 @@ const todoSlice = createSlice({
         name: newTodo.todo,
         completed: false,
       });
+      state.filter = "";
     },
     removeTodo(state, action) {
       const id = action.payload;
@@ -26,8 +28,10 @@ const todoSlice = createSlice({
     editTodo(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
-      console.log(newItem.name);
       existingItem.name = action.payload.name;
+    },
+    searchTodo(state, action) {
+      state.filter = action.payload;
     },
   },
 });
